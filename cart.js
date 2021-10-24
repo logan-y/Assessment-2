@@ -95,9 +95,8 @@ const calcFinalPrice = (cartTotal, couponValue, tax) => {
    card number - to charge orders - numbers only, uniform format for cardholders
    zip code - to confirm card - numbers only, format standard.
 
-*/
 
-/*
+   
     Now, create a customer object following your own
     guidelines.
 */

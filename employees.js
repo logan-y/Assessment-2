@@ -19,7 +19,18 @@
     stored on the object.
 */
 
-//CODE HERE
+class Employee {
+    constructor(name, shifts) {
+      this.name = name;
+      this.shifts = shifts;
+    }
+
+    getSchedule(){
+      return console.log(`${this.name} works on ${this.shifts}`);
+    }
+}
+
+
 
 
 
@@ -32,16 +43,14 @@
     name: Jess
     shifts: weekday mornings, weekday afternoons
 */
+const empOne = new Employee('Jess', 'weekday mornings, weekday afternoons');
 
-//CODE HERE
 
 /*
     Call the `getSchedule` method on the
     `empOne` object.
 */
-
-//CODE HERE
-
+empOne.getSchedule();
 
 /*
     Make a copy of the empOne object
@@ -55,9 +64,8 @@
     dot or bracket notation.
 */
 
-//CODE HERE
-
-
+let empTwo = {...empOne, name: 'Nick'}
+//console.log(empTwo);        //this does not allow for the getSchedule method since it is not in the employee class.
 
 //////////////////PROBLEM 2////////////////////
 /*  
@@ -68,13 +76,11 @@
     new one: employees, which will be an array of 
     employees that report to this manager. 
     (Hint: don't forget to call the super function)
-
     Create a method called `getEmployees` that
     console.logs a string:
     [NAME] manages [EMPLOYEES]
     Where NAME and EMPLOYEES reference the values
     stored on the object.
-
     Create a second method called `addEmployee`
     that takes in one argument, `emp`, which
     should be a string of an employee name.
@@ -82,10 +88,19 @@
     the employees array. 
 */
 
-//CODE HERE
+class Manager extends Employee {
+    constructor (name, shifts, employees) {
+        super(name, shifts);
+        this.employees = employees;
+    }
 
+    getEmployees(){
+        console.log(`${this.name} manages ${this.employees}`)
+    }
 
-
+    addEmployee = (emp) => {this.employees.push(emp)}
+    
+}
 /*
     Create a new instance of your class.
     Save it to a variable called `manager`.
@@ -96,29 +111,22 @@
     shifts: weekday mornings, weekday afternoons
     employees: Cece and Schmidt
 */
-
-//CODE HERE
-
-
+const manager = new Manager('Winston', 'weekday mornings, weekday afternoons', ['cece', 'schmidt']);
 /*
     Call the `getEmployees` method on the
     `manager` object.  
 */
-
-//CODE HERE
-
+manager.getEmployees();
 /*
     Call the `addEmployee` method on the 
     `manager` object passing in the string 
     'Coach' or whatever name you'd like.
 */
-
-//CODE HERE 
-
+manager.addEmployee('coach Lisa');
+//console.log(manager);
 /*
     Call the `getEmployees` method on the
     `manager` object again to confirm 
     that an employee was added.
 */
-
-//CODE HERE
+manager.getEmployees();

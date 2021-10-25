@@ -5,8 +5,6 @@
     In this file, you'll be writing a class
     to make tickets from order information.
 */
-
-
 //////////////////PROBLEM 1////////////////////
 /*  
     Create a new class called `Ticket`.
@@ -28,11 +26,20 @@
     Where CUSTOMERID and STATUS reference the values
     stored on the object.
 */
+class Ticket {
+    constructor(items, orderTime, customerId){
+        this.items = items;
+        this.orderTime = orderTime;
+        this.customerId = customerId;
+        this.status = 'queued';
+    }
 
-//CODE HERE
+    updateStatus = newStatus => {
+        this.status = newStatus;
+        console.log(`The order for customer ${this.customerId} is now ${this.status}`)
+    }
 
-
-
+}
 /*
     Create a new instance of your class.
     Save it to a variable called `firstTicket`.
@@ -43,14 +50,13 @@
     ordered at: 7:03 PM
     customer: 575
 */
-
-//CODE HERE
-
-
+const firstTicket = new Ticket('pizza and a scone', '8:39', 1024);
 /*
     Call the `updateStatus` method on
     `firstTicket` passing in the string
     'cooking'
 */
-
-//CODE HERE
+firstTicket.updateStatus('cooking')
+firstTicket.updateStatus('ready')
+firstTicket.updateStatus('burning :(')
+firstTicket.updateStatus('lost forever');

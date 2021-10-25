@@ -18,7 +18,6 @@
     Where NAME and SHIFTS reference the values
     stored on the object.
 */
-
 class Employee {
     constructor(name, shifts) {
       this.name = name;
@@ -29,11 +28,6 @@ class Employee {
       return console.log(`${this.name} works on ${this.shifts}`);
     }
 }
-
-
-
-
-
 /*
     Create a new instance of your class.
     Save it to a variable called `empOne`.
